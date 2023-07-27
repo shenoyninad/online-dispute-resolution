@@ -39,10 +39,32 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "short_desc": "Arbitration Service"
+            "name": "Arbitration Services"
           }
         }
       ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "2500"
+        },
+        "breakup": [
+          {
+            "title": "Base fee",
+            "price": {
+              "value": "2000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Fee per hearing",
+            "price": {
+              "value": "500",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
       "fulfillments": [
         {
           "customer": {

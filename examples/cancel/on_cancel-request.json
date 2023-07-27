@@ -6,21 +6,21 @@
         "code": "IND"
       }
     },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
-    "action": "on_update",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
     "bap_id": "odr-bap.becknprotocol.io",
-    "bpp_id": "odr-bpp.becknprotocol.io",
-    "bpp_uri": "https://odr-network-bpp.becknprotocol.io",
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
-    "ttl": "PT10M",
-    "timestamp": "2023-05-25T05:23:03.443Z"
+    "bpp_id": "sama-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://sama-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
   },
   "message": {
     "order": {
       "id": "66b7b9bad166",
-      "status": "ACTIVE",
+      "status": "CANCELLED",
       "provider": {
         "id": "1",
         "descriptor": {
@@ -39,32 +39,10 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "short_desc": "Arbitration Service"
+            "name": "Arbitration Services"
           }
         }
       ],
-      "quote": {
-        "price": {
-          "currency": "INR",
-          "value": "2500"
-        },
-        "breakup": [
-          {
-            "title": "Base fee",
-            "price": {
-              "value": "2000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Fee per hearing",
-            "price": {
-              "value": "500",
-              "currency": "INR"
-            }
-          }
-        ]
-      },
       "fulfillments": [
         {
           "customer": {
@@ -97,28 +75,6 @@
               "email": "john.doe@example.com"
             }
           },
-          "agent": {
-            "person": {
-              "id": "fsjks743DGS",
-              "name": "Mr Adam Smith"
-            }
-          },
-          "stops": [
-            {
-              "time": {
-                "label": "Hearing Date",
-                "Range": {
-                  "start": "2023-06-27T00:00:00.00Z",
-                  "end": "2023-08-02T00:00:00.00Z"
-                }
-              }
-            }
-          ],
-          "state": {
-            "descriptor": {
-              "name": "Arbitration In Progress"
-            }
-          },
           "tags": [
             {
               "descriptor": {
@@ -135,7 +91,19 @@
                   "descriptor": {
                     "name": "details"
                   },
-                  "value": "Insurance payout denied to the complainant"
+                  "value": "Insurance payout rejected to the complainant"
+                },
+                {
+                  "descriptor": {
+                    "name": "claim amount"
+                  },
+                  "value": "50000"
+                },
+                {
+                  "descriptor": {
+                    "name": "claim filing date"
+                  },
+                  "value": "2023-06-20"
                 }
               ]
             },
@@ -148,19 +116,58 @@
                   "descriptor": {
                     "name": "name"
                   },
-                  "value": "ICICI Prudential Life Insurance"
+                  "value": "Secure Insurance Co"
+                },
+                {
+                  "descriptor": {
+                    "name": "contact person"
+                  },
+                  "value": "Alisha Sharma"
+                },
+                {
+                  "descriptor": {
+                    "name": "contact details"
+                  },
+                  "value": "alisha.sharma@example.com"
                 },
                 {
                   "descriptor": {
                     "name": "address"
                   },
-                  "value": " E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055"
+                  "value": "456, Insurance Avenue, City XYZ, State ABC"
                 }
               ]
             }
-          ]
+          ],
+          "state": {
+            "descriptor": {
+              "name": "Case has been cancelled."
+            }
+          }
         }
-      ]
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "2500"
+        },
+        "breakup": [
+          {
+            "title": "Base fee",
+            "price": {
+              "value": "2000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Fee per hearing",
+            "price": {
+              "value": "500",
+              "currency": "INR"
+            }
+          }
+        ]
+      }
     }
   }
 }
