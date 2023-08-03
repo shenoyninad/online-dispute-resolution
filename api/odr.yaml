@@ -116,6 +116,29 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Cancel/withdraw a case:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: cancel
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: sama-odr-bpp.becknprotocol.io
+                    bpp_uri: https://sama-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order_id: 572BHD23HD
+                    cancellation_reason_id: '5'
+                    descriptor:
+                      short_desc: Dispute dropped
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -177,6 +200,61 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Request to update case agent:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    update_target: order.fulfillments[0].agent
+                    order:
+                      id: 66b7b9bad166
+                      fulfillments:
+                        - agent:
+                            person:
+                              id: ca063dc9d321
+                              name: Mr Adam Smith
+              Request to update hearing date:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    update_target: order.fulfillments[0].stops[0].time
+                    order:
+                      id: 66b7b9bad166
+                      fulfillments:
+                        - stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-08-02T00:00:00.00Z'
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -253,21 +331,24 @@ paths:
                     ttl: PT10M
                   message:
                     order:
-                      id: 66b7b9bad166
+                      id: 572BHD23HD
                       status: CANCELLED
                       provider:
-                        id: '1'
+                        id: ODR001
                         descriptor:
                           images:
                             - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          code: ODRSAMA
                           name: Sama
                           short_desc: Sama
                           long_desc: Sama Pvt Ltd., India.
                       items:
-                        - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                        - id: SAMA-ARB-01
                           descriptor:
+                            code: arbitration-services
                             name: Arbitration Services
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
                       fulfillments:
                         - customer:
                             person:
@@ -295,12 +376,6 @@ paths:
                                 - descriptor:
                                     name: details
                                   value: Insurance payout rejected to the complainant
-                                - descriptor:
-                                    name: claim amount
-                                  value: '50000'
-                                - descriptor:
-                                    name: claim filing date
-                                  value: '2023-06-20'
                             - descriptor:
                                 name: Respondent details
                               list:
@@ -422,7 +497,8 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            short_desc: Arbitration Service
+                            code: arbitration-service
+                            name: Arbitration Service
                       quote:
                         price:
                           currency: INR
@@ -436,6 +512,15 @@ paths:
                             price:
                               value: '500'
                               currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
                       fulfillments:
                         - customer:
                             person:
@@ -465,26 +550,33 @@ paths:
                                   end: '2023-07-02T00:00:00.00Z'
                           state:
                             descriptor:
-                              name: Arbitration In Progress
-                          tags:
+                              name: Case agent has been updated
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
                             - descriptor:
-                                name: Dispute Details
-                              list:
-                                - descriptor:
-                                    name: category
-                                  value: Insurance
-                                - descriptor:
-                                    name: details
-                                  value: Insurance payout denied to the complainant
+                                name: category
+                              value: Insurance
                             - descriptor:
-                                name: Respondent details
-                              list:
-                                - descriptor:
-                                    name: name
-                                  value: ICICI Prudential Life Insurance
-                                - descriptor:
-                                    name: address
-                                  value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: ICICI Prudential Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
               Updating the case hearing date:
                 value:
                   context:
@@ -518,7 +610,8 @@ paths:
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            short_desc: Arbitration Service
+                            code: arbitration-service
+                            name: Arbitration Service
                       quote:
                         price:
                           currency: INR
@@ -532,6 +625,15 @@ paths:
                             price:
                               value: '500'
                               currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
                       fulfillments:
                         - customer:
                             person:
@@ -561,26 +663,33 @@ paths:
                                   end: '2023-08-02T00:00:00.00Z'
                           state:
                             descriptor:
-                              name: Arbitration In Progress
-                          tags:
+                              name: Hearing date has been updated.
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
                             - descriptor:
-                                name: Dispute Details
-                              list:
-                                - descriptor:
-                                    name: category
-                                  value: Insurance
-                                - descriptor:
-                                    name: details
-                                  value: Insurance payout denied to the complainant
+                                name: category
+                              value: Insurance
                             - descriptor:
-                                name: Respondent details
-                              list:
-                                - descriptor:
-                                    name: name
-                                  value: ICICI Prudential Life Insurance
-                                - descriptor:
-                                    name: address
-                                  value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: ICICI Prudential Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -664,14 +773,14 @@ paths:
                         descriptor:
                           images:
                             - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          code: ODRSAMA
                           name: Sama
                           short_desc: Sama
                           long_desc: Sama Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            short_desc: Arbitration Service
+                            code: arbitration-service
+                            name: Arbitration Service
                       quote:
                         price:
                           currency: INR
@@ -685,6 +794,12 @@ paths:
                             price:
                               value: '500'
                               currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
                       fulfillments:
                         - customer:
                             person:
@@ -714,26 +829,34 @@ paths:
                                   end: '2023-07-02T00:00:00.00Z'
                           state:
                             descriptor:
+                              code: arbitration-in-progress
                               name: Arbitration In Progress
-                          tags:
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
                             - descriptor:
-                                name: Dispute Details
-                              list:
-                                - descriptor:
-                                    name: category
-                                  value: Insurance
-                                - descriptor:
-                                    name: details
-                                  value: Insurance payout denied to the complainant
+                                name: category
+                              value: Insurance
                             - descriptor:
-                                name: Respondent details
-                              list:
-                                - descriptor:
-                                    name: name
-                                  value: ICICI Prudential Life Insurance
-                                - descriptor:
-                                    name: address
-                                  value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: ICICI Prudential Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
               Retrieve the status of the dispute that has been resolved:
                 value:
                   context:
@@ -760,14 +883,14 @@ paths:
                         descriptor:
                           images:
                             - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          code: ODRSAMA
                           name: Sama
                           short_desc: Sama
                           long_desc: Sama Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
-                            short_desc: Arbitration Service
+                            code: arbitration-service
+                            name: Arbitration Service
                       quote:
                         price:
                           currency: INR
@@ -781,6 +904,12 @@ paths:
                             price:
                               value: '500'
                               currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
                       fulfillments:
                         - customer:
                             person:
@@ -810,26 +939,34 @@ paths:
                                   end: '2023-07-02T00:00:00.00Z'
                           state:
                             descriptor:
+                              code: complaint-resolved
                               name: Complaint Resolved
-                          tags:
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
                             - descriptor:
-                                name: Dispute Details
-                              list:
-                                - descriptor:
-                                    name: category
-                                  value: Insurance
-                                - descriptor:
-                                    name: details
-                                  value: Insurance payout denied to the complainant
+                                name: category
+                              value: Insurance
                             - descriptor:
-                                name: Respondent details
-                              list:
-                                - descriptor:
-                                    name: name
-                                  value: ICICI Prudential Life Insurance
-                                - descriptor:
-                                    name: address
-                                  value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: ICICI Prudential Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature

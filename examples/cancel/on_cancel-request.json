@@ -19,17 +19,16 @@
   },
   "message": {
     "order": {
-      "id": "66b7b9bad166",
+      "id": "572BHD23HD",
       "status": "CANCELLED",
       "provider": {
-        "id": "1",
+        "id": "ODR001",
         "descriptor": {
           "images": [
             {
               "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ODRSAMA",
           "name": "Sama",
           "short_desc": "Sama",
           "long_desc": "Sama Pvt Ltd., India."
@@ -37,12 +36,17 @@
       },
       "items": [
         {
-          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "id": "SAMA-ARB-01",
           "descriptor": {
+            "code": "arbitration-services",
             "name": "Arbitration Services"
           }
         }
       ],
+      "billing": {
+        "name": "Secure Insurance Co",
+        "email": "alisha.sharma@example.com"
+      },
       "fulfillments": [
         {
           "customer": {
