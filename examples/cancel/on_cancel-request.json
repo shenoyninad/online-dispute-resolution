@@ -13,8 +13,8 @@
     "version": "1.1.0",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
     "bap_id": "odr-bap.becknprotocol.io",
-    "bpp_id": "sama-odr-bpp.becknprotocol.io",
-    "bpp_uri": "https://sama-odr-network-bpp.becknprotocol.io",
+    "bpp_id": "xyz-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://xyz-odr-network-bpp.becknprotocol.io",
     "ttl": "PT10M"
   },
   "message": {
@@ -26,17 +26,17 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png"
+              "url": "https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png"
             }
           ],
-          "name": "Sama",
-          "short_desc": "Sama",
-          "long_desc": "Sama Pvt Ltd., India."
+          "name": "Xyz",
+          "short_desc": "Xyz",
+          "long_desc": "Xyz Pvt Ltd., India."
         }
       },
       "items": [
         {
-          "id": "SAMA-ARB-01",
+          "id": "XYZ-ARB-01",
           "descriptor": {
             "code": "arbitration-services",
             "name": "Arbitration Services"

@@ -131,8 +131,8 @@ paths:
                     version: 1.1.0
                     bap_uri: https://odr-network-bap.becknprotocol.io/
                     bap_id: odr-bap.becknprotocol.io
-                    bpp_id: sama-odr-bpp.becknprotocol.io
-                    bpp_uri: https://sama-odr-network-bpp.becknprotocol.io
+                    bpp_id: xyz-odr-bpp.becknprotocol.io
+                    bpp_uri: https://xyz-odr-network-bpp.becknprotocol.io
                     ttl: PT10M
                   message:
                     order_id: 572BHD23HD
@@ -326,8 +326,8 @@ paths:
                     version: 1.1.0
                     bap_uri: https://odr-network-bap.becknprotocol.io/
                     bap_id: odr-bap.becknprotocol.io
-                    bpp_id: sama-odr-bpp.becknprotocol.io
-                    bpp_uri: https://sama-odr-network-bpp.becknprotocol.io
+                    bpp_id: xyz-odr-bpp.becknprotocol.io
+                    bpp_uri: https://xyz-odr-network-bpp.becknprotocol.io
                     ttl: PT10M
                   message:
                     order:
@@ -337,12 +337,12 @@ paths:
                         id: ODR001
                         descriptor:
                           images:
-                            - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          name: Sama
-                          short_desc: Sama
-                          long_desc: Sama Pvt Ltd., India.
+                            - url: https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png
+                          name: Xyz
+                          short_desc: Xyz
+                          long_desc: Xyz Pvt Ltd., India.
                       items:
-                        - id: SAMA-ARB-01
+                        - id: XYZ-ARB-01
                           descriptor:
                             code: arbitration-services
                             name: Arbitration Services
@@ -489,11 +489,11 @@ paths:
                         id: '1'
                         descriptor:
                           images:
-                            - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          code: ODRSAMA
-                          name: Sama
-                          short_desc: Sama
-                          long_desc: Sama Pvt Ltd., India.
+                            - url: https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png
+                          code: ODRXYZ
+                          name: Xyz
+                          short_desc: Xyz
+                          long_desc: Xyz Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -566,7 +566,7 @@ paths:
                           list:
                             - descriptor:
                                 name: name
-                              value: ICICI Prudential Life Insurance
+                              value: Secure Life Insurance
                             - descriptor:
                                 name: address
                               value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
@@ -576,7 +576,7 @@ paths:
                             name: Case Documentation
                             short_desc: Download all the case documents from here
                           mime_type: application/pdf
-                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+                          url: https://xyz.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
               Updating the case hearing date:
                 value:
                   context:
@@ -602,11 +602,11 @@ paths:
                         id: '1'
                         descriptor:
                           images:
-                            - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          code: ODRSAMA
-                          name: Sama
-                          short_desc: Sama
-                          long_desc: Sama Pvt Ltd., India.
+                            - url: https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png
+                          code: ODRXYZ
+                          name: Xyz
+                          short_desc: Xyz
+                          long_desc: Xyz Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -679,7 +679,7 @@ paths:
                           list:
                             - descriptor:
                                 name: name
-                              value: ICICI Prudential Life Insurance
+                              value: Secure Life Insurance
                             - descriptor:
                                 name: address
                               value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
@@ -689,7 +689,7 @@ paths:
                             name: Case Documentation
                             short_desc: Download all the case documents from here
                           mime_type: application/pdf
-                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+                          url: https://xyz.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -772,10 +772,10 @@ paths:
                         id: '1'
                         descriptor:
                           images:
-                            - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          name: Sama
-                          short_desc: Sama
-                          long_desc: Sama Pvt Ltd., India.
+                            - url: https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png
+                          name: Xyz
+                          short_desc: Xyz
+                          long_desc: Xyz Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -846,7 +846,7 @@ paths:
                           list:
                             - descriptor:
                                 name: name
-                              value: ICICI Prudential Life Insurance
+                              value: Secure Life Insurance
                             - descriptor:
                                 name: address
                               value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
@@ -856,7 +856,7 @@ paths:
                             name: Case Documentation
                             short_desc: Download all the case documents from here
                           mime_type: application/pdf
-                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+                          url: https://xyz.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
               Retrieve the status of the dispute that has been resolved:
                 value:
                   context:
@@ -882,10 +882,10 @@ paths:
                         id: '1'
                         descriptor:
                           images:
-                            - url: https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png
-                          name: Sama
-                          short_desc: Sama
-                          long_desc: Sama Pvt Ltd., India.
+                            - url: https://www.xyz.com/content/dam/xyz/india/assets/images/header/logo.png
+                          name: Xyz
+                          short_desc: Xyz
+                          long_desc: Xyz Pvt Ltd., India.
                       items:
                         - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
                           descriptor:
@@ -956,7 +956,7 @@ paths:
                           list:
                             - descriptor:
                                 name: name
-                              value: ICICI Prudential Life Insurance
+                              value: Secure Life Insurance
                             - descriptor:
                                 name: address
                               value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
@@ -966,7 +966,7 @@ paths:
                             name: Case Documentation
                             short_desc: Download all the case documents from here
                           mime_type: application/pdf
-                          url: https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+                          url: https://xyz.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
